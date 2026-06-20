@@ -1,0 +1,8 @@
+# IDD Lite Object Detection Dataset
+path: C:/work/ML_Models/Trafic/training/datasets/idd_lite_detection
+train: images/train
+val: images/val
+test: images/test
+
+nc: 2
+names: ['living_thing', 'vehicle']

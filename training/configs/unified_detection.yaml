@@ -1,0 +1,56 @@
+# Ultralytics YOLO 🚀, GPL-3.0 license
+# YOLOv11m unified 11-class configuration for traffic violation detection
+
+task: detect
+model: yolo11m.pt  # Medium backbone — best accuracy/speed tradeoff
+data: datasets/unified_detection/dataset.yaml
+imgsz: 640
+
+# Training
+epochs: 150
+batch: 16
+patience: 30
+save_period: 10
+workers: 8
+
+# Optimizer
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 5.0
+
+# Augmentation — aggressive for real-world robustness
+hsv_h: 0.02
+hsv_s: 0.7
+hsv_v: 0.5
+degrees: 5.0
+translate: 0.15
+scale: 0.6
+shear: 2.0
+perspective: 0.001
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.15
+copy_paste: 0.2
+erasing: 0.1
+
+# Loss weights — higher cls for 11-class discrimination
+box: 7.5
+cls: 1.0     # raised from 0.5 for fine-grained multi-class
+dfl: 1.5
+
+# 11 Unified Classes
+names:
+  0: car
+  1: truck
+  2: bus
+  3: motorcycle
+  4: auto_rickshaw
+  5: bicycle
+  6: pedestrian
+  7: rider
+  8: helmet
+  9: license_plate
+  10: traffic_light

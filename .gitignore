@@ -1,0 +1,152 @@
+# ============================================
+# TrafficAI — Comprehensive .gitignore
+# ============================================
+
+# ---------- Environment & Secrets ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+*.whl
+*.spec
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.so
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# ---------- Node.js ----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ---------- IDE & Editor ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.temp
+
+# ---------- Logs ----------
+*.log
+logs/
+
+# ---------- ML Model Weights ----------
+# Individual model files (large binaries)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+*.pb
+*.weights
+*.bin
+*.torchscript
+*.mlmodel
+*.coremlmodel
+
+# Allow YAML configs that define training recipes
+!training/configs/*.yaml
+!training/configs/*.yml
+
+# ---------- Training Artifacts ----------
+training/runs/
+training/weights/
+training/datasets/*/images/
+training/datasets/*/labels/
+training/datasets/*.zip
+runs/
+wandb/
+mlruns/
+*.pt
+lightning_logs/
+
+# ---------- Training Data & Datasets ----------
+# Raw dataset archives
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Dataset directories with actual images/labels
+training/datasets/*/images/
+training/datasets/*/labels/
+
+# Raw source data (annotations, raw images)
+training/datasets/raw_safety_helmet/
+
+# Sample / synthetic data
+training/datasets/sample/
+
+# ---------- Evidence & Media ----------
+evidence/
+*.jpg
+*.jpeg
+!frontend/src/assets/*.png
+!frontend/src/assets/*.jpg
+
+# ---------- Database ----------
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+
+# ---------- Docker ----------
+docker-compose.override.yml
+
+# ---------- Build Artifacts ----------
+frontend/dist/
+frontend/build/
+backend/build/
+
+# ---------- Misc ----------
+*.pkl
+*.pickle
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.tox/
+.nox/

@@ -1,0 +1,7 @@
+names:
+- helmet
+- no_helmet
+nc: 2
+path: C:/work/ML_Models/Trafic/training/datasets/helmet_detection
+train: images/train
+val: images/val

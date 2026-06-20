@@ -1,0 +1,42 @@
+# Seatbelt Classification Dataset Configuration
+# Classes: seatbelt_on, seatbelt_off
+# This is a CLASSIFICATION config (not detection)
+task: classify
+model: yolo11n-cls.pt  # Classification variant
+data: datasets/seatbelt_classifier/
+
+# Training hyperparameters
+epochs: 60
+batch: 64
+imgsz: 224
+device: ''  # auto-detect
+workers: 8
+patience: 15
+save_period: 10
+
+# Optimizer
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+
+# Augmentation
+hsv_h: 0.015
+hsv_s: 0.5
+hsv_v: 0.4
+degrees: 15.0
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.5
+erasing: 0.4
+
+# Classes
+names:
+  0: seatbelt_on
+  1: seatbelt_off

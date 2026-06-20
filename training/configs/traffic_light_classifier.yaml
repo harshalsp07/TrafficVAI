@@ -1,0 +1,13 @@
+# Ultralytics YOLO 🚀, GPL-3.0 license
+# Traffic light state classification configuration
+
+task: classify
+model: resnet18
+data: datasets/traffic_light_state/
+imgsz: 64
+epochs: 40
+batch: 128
+names:
+  0: red
+  1: yellow
+  2: green

@@ -1,0 +1,6 @@
+names:
+- license_plate
+nc: 1
+path: C:/work/ML_Models/Trafic/training/datasets/plate_detection
+train: images/train
+val: images/val

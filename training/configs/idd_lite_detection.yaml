@@ -1,0 +1,47 @@
+# IDD Lite Detection Configuration
+# Classes: living_thing (0), vehicle (1)
+task: detect
+model: yolov12n.pt  # Options: yolov12n.pt, yolov12s.pt, yolov12m.pt
+data: datasets/idd_lite_detection/dataset.yaml
+
+# Training hyperparameters
+epochs: 100
+batch: 16
+imgsz: 320  # IDD Lite images are smaller (typically 320x227), using 320 for speed/constrained resources
+device: ''  # auto-detect: '' for auto, 'cpu', '0' for GPU 0
+workers: 4
+patience: 15
+save_period: 10
+
+# Optimizer
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+
+# Augmentation - light augmentations suited for low-resolution/resource-constrained training
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 0.0
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.5
+mosaic: 0.5
+mixup: 0.0
+
+# Loss weights
+box: 7.5
+cls: 0.5
+dfl: 1.5
+
+# Classes
+names:
+  0: living_thing
+  1: vehicle

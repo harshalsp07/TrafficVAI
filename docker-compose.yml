@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: its-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./training/weights:/app/weights
+      - evidence_data:/app/evidence
+      - db_data:/app/data
+      - ./training:/app/training
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/traffic.db
+      - MODEL_PATH=./weights/yolov12n.pt
+      - DEVICE=cpu
+      - HOST=0.0.0.0
+      - PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: its-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  evidence_data:
+  db_data:
