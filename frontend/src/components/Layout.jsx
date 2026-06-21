@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { LayoutDashboard, AlertTriangle, BarChart3, Camera, Brain, Settings, Bell, Search, Menu, X } from 'lucide-react';
+import { LayoutDashboard, AlertTriangle, BarChart3, Camera, Brain, Settings, Bell, Search, Menu, X, Upload } from 'lucide-react';
 import StatusDot from './StatusDot';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/violations', label: 'Violations', icon: AlertTriangle },
+  { path: '/upload', label: 'Upload', icon: Upload },
   { path: '/analytics', label: 'Analytics', icon: BarChart3 },
   { path: '/cameras', label: 'Cameras', icon: Camera },
   { path: '/training', label: 'Training', icon: Brain },
@@ -15,6 +16,7 @@ const NAV_ITEMS = [
 const PAGE_TITLES = {
   '/': 'Dashboard',
   '/violations': 'Violations',
+  '/upload': 'Image Upload',
   '/analytics': 'Analytics',
   '/cameras': 'Cameras',
   '/training': 'Training',

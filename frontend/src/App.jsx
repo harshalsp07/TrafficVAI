@@ -7,6 +7,7 @@ import Analytics from './pages/Analytics';
 import Cameras from './pages/Cameras';
 import Training from './pages/Training';
 import Settings from './pages/Settings';
+import Upload from './pages/Upload';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/cameras" element={<Cameras />} />
           <Route path="/training" element={<Training />} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
